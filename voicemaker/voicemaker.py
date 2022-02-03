@@ -56,20 +56,37 @@ class Voicemaker():
   def generate_audio_url(self,
                          text: str,
                          engine='neural', voice_id='ai3-Jony', language_code='en-US',
-                         output_format='mp3', sample_rate='48000', effect='default',
-                         master_speed='0', master_volume='0',
-                         master_pitch='0') -> None:
+                         output_format='mp3', sample_rate=48000, effect='default',
+                         master_speed=0, master_volume=0,
+                         master_pitch=0) -> str:
+    """Generates an audio URL from the given text and using the selected options
+
+    Args:
+        text (str): Text to generate an audio from.
+        engine (str, optional): Choose between 'standard' and 'neutral'. Defaults to 'neural'.
+        voice_id (str, optional): Uses the selected voice id from the available one for the selected language. Defaults to 'ai3-Jony'.
+        language_code (str, optional): Language of the target voice. Defaults to 'en-US'.
+        output_format (str, optional): Choose from 'mp3' and 'wav'. Defaults to 'mp3'.
+        sample_rate (int, optional): Choose from 48000, 44100, 24000, 22050, 16000, 8000. Defaults to 48000.
+        effect (str, optional): Effect to give to the voice. Defaults to 'default'.
+        master_speed (int, optional): Speed from -100 to 100. Defaults to 0.
+        master_volume (int, optional): Volume of the voice from -100 to 100. Defaults to 0.
+        master_pitch (int, optional): Pitch of the voice, from -100 to 100. Defaults to 0.
+
+    Returns:
+        str: URL of the MP3 to download, hosted on Voicemaker.in
+    """
     return self.__post__('/api', {
         'Text': text,
         'Engine': engine,
         'VoiceId': voice_id,
         'LanguageCode': language_code,
         'OutputFormat': output_format,
-        'SampleRate': sample_rate,
+        'SampleRate': str(sample_rate),
         'Effect': effect,
-        'MasterSpeed': master_speed,
-        'MasterVolume': master_volume,
-        'MasterPitch': master_pitch,
+        'MasterSpeed': str(master_speed),
+        'MasterVolume': str(master_volume),
+        'MasterPitch': str(master_pitch),
     })['path']
 
   def generate_audio_to_file(self, out_path: str, text: str, **kwargs) -> None:

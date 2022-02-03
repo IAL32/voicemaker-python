@@ -1,8 +1,11 @@
 from setuptools import setup, find_packages
+# read the contents of your README file
+from pathlib import Path
+this_directory = Path(__file__).parent
 
-VERSION = '0.0.3'
+VERSION = '0.0.4'
 DESCRIPTION = 'A Voicemaker.in simple API interface'
-LONG_DESCRIPTION = 'Voicemaker.in is an online text-to-speech service with a dead-simple API. This package is just a wrapper around their API. This is an unofficial package, and is in no way associated to Voicemaker.'
+LONG_DESCRIPTION = (this_directory / "README.md").read_text()
 
 # Setting up
 setup(
@@ -14,6 +17,7 @@ setup(
         license='MIT',
         description=DESCRIPTION,
         long_description=LONG_DESCRIPTION,
+        long_description_content_type='text/markdown',
         packages=find_packages(),
         install_requires=["requests>=2.2"], # add any additional packages that 
         # needs to be installed along with your package. Eg: 'caer'

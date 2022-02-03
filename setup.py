@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '0.0.2' 
+VERSION = '0.0.3'
 DESCRIPTION = 'A Voicemaker.in simple API interface'
 LONG_DESCRIPTION = 'Voicemaker.in is an online text-to-speech service with a dead-simple API. This package is just a wrapper around their API. This is an unofficial package, and is in no way associated to Voicemaker.'
 

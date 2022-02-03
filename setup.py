@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 from pathlib import Path
 this_directory = Path(__file__).parent
 
-VERSION = '0.0.4'
+VERSION = '0.0.5'
 DESCRIPTION = 'A Voicemaker.in simple API interface'
 LONG_DESCRIPTION = (this_directory / "README.md").read_text()
 
@@ -13,7 +13,7 @@ setup(
         version=VERSION,
         author="Adrian Castro",
         author_email="<adrian.d.castro.t@gmail.com>",
-        url='https://github.com/IAL32/voicemaker',
+        url='https://github.com/IAL32/voicemaker-python',
         license='MIT',
         description=DESCRIPTION,
         long_description=LONG_DESCRIPTION,

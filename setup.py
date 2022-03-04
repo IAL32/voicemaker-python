@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 from pathlib import Path
 this_directory = Path(__file__).parent
 
-VERSION = '0.0.5'
+VERSION = '0.0.7'
 DESCRIPTION = 'A Voicemaker.in simple API interface'
 LONG_DESCRIPTION = (this_directory / "README.md").read_text()
 
@@ -18,7 +18,8 @@ setup(
         description=DESCRIPTION,
         long_description=LONG_DESCRIPTION,
         long_description_content_type='text/markdown',
-        packages=find_packages(),
+        package_dir={'': 'src'},
+        packages=find_packages('src'),
         install_requires=["requests>=2.2"], # add any additional packages that 
         # needs to be installed along with your package. Eg: 'caer'
         
